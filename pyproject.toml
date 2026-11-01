@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d4ft-neural-ksdft"
+version = "1.0.0"
+description = "Differentiable Kohn-Sham Density Functional Theory (D4FT) with Neural Meta-GGA and Global Hybrid Exact Exchange in JAX"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "jax>=0.4.20",
+    "jaxlib>=0.4.20",
+    "flax>=0.8.0",
+    "optax>=0.2.0",
+    "pyscf>=2.4.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.scripts]
+d4ft-train-hybrid = "scripts.train_metagga_hybrid:main"
+d4ft-run-benchmarks = "scripts.run_d4ft_experiments:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
